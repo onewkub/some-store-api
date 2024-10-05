@@ -24,7 +24,7 @@ This is a .NET Core 8 Web API project using Entity Framework Core (EF Core) for 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/some-store-api.git
+   git clone https://github.com/onewkub/some-store-api.git
    cd some-store-api
    ```
 
