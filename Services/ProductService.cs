@@ -27,9 +27,9 @@ namespace SomeStoreAPI.Services
         public PaginationData<Product> GetAllProducts(QueryProduct query)
         {
             var queryAble = _productRepository
-                .Find(p => 
-                    (query.Search == null || query.Search == string.Empty) 
-                    || p.Name.Contains(query.Search, StringComparison.CurrentCultureIgnoreCase))
+                .Find(p =>
+                    (string.IsNullOrEmpty(query.Search))
+                    || p.Name.ToLower().Contains(query.Search.ToLower()))
                 .Include(p => p.Tags)
                 .Include(p => p.Categories)
                 .Include(p => p.Images);
