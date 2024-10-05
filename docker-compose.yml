@@ -1,9 +1,17 @@
 services:
-    api:
-        image: somestoreapi:latest
-        ports:
-            - 8081:8081
-            - 8080:8080
-        restart: unless-stopped
-        volumes:
-            - ./products.db:/app/products.db
+  some-store-service:
+    image: 803975426473.dkr.ecr.ap-southeast-1.amazonaws.com/wooden-store:latest
+    ports:
+      - 8081:8081
+      - 8080:8080
+    restart: unless-stopped
+    volumes:
+      - ./products.db:/app/products.db
+  some-store-web:
+    image: 803975426473.dkr.ecr.ap-southeast-1.amazonaws.com/wooden-store-web:latest
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+networks:
+  swag:
+    external: true
